@@ -8,6 +8,7 @@
 		"errno.h": "c",
 		"ft_printf.h": "c",
 		"fcntl.h": "c",
-		"sstream": "c"
+		"sstream": "c",
+		"algorithm": "c"
 	}
 }
