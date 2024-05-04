@@ -2,6 +2,12 @@
 	"files.associations": {
 		"so_long.h": "c",
 		"math.h": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"libft.h": "c",
+		"get_next_line.h": "c",
+		"errno.h": "c",
+		"ft_printf.h": "c",
+		"fcntl.h": "c",
+		"sstream": "c"
 	}
 }

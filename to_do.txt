@@ -1,0 +1,29 @@
+TO_DO
+************************************************************************************
+	LIBFT:
+		-	get_next_line()
+		-	ft_duplicate()
+		-	ft_printf()
+		-	ft_strlen()
+		-	ft_join()
+		-
+************************************************************************************
+
+
+	*	Actions(events);
+	Parsing:
+		- Missing Player;
+		- Missing Collectible;
+		- Missing Exit;
+
+		- Trapped Player
+		- Trapped Collectible;
+		- Trapped Exit
+
+		- The Map is not surrounded by 1s;
+		- The Map has to be smaller than the maximum size of the window
+		- The Map's name has to end with .ber
+		- The Map has to be rectungular
+		- The Map is disconnected and the player is on one side and the exit is on the other.
+
+		
