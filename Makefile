@@ -1,6 +1,6 @@
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
 
 #SRC = $(filter-out so_long.c, $(wildcard *.c))
 SRC = $(wildcard *.c)

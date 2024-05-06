@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 03:20:33 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/06 03:47:06 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/06 09:46:03 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ typedef struct	s_mlx
 	int		moves;
 }				t_mlx;
 // #ifndef
-# define max_width	2560
-# define max_height 1440
-
+# define MAX_WIDTH		2560
+# define MAX_HEIGHT		1440
+# define SPRITE_SIZE	32
 // typedef	struct	s_window
 // {
 // 	int			height;
@@ -49,11 +49,12 @@ typedef struct	s_mlx
 
 int		get_height(char **map);
 int		get_count(t_mlx *game);
-int		ft_close(int keycode, t_mlx *game);
+int		ft_close(t_mlx *game);
 
 void	long_parse(char *total);
 void	ft_render(t_mlx *game);
 void	put_sprite(t_mlx *game, int sprite_size);
+void	print_moves(t_mlx *game);
 
 char	**get_map(int fd);
 
