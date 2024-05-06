@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 03:20:33 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/04 19:40:53 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/06 03:47:06 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 typedef struct	s_mlx
 {
 	void	*mlx;
-	void	*img;
-	void	*img_z;
 	void	*window;
+	void	*wall;
+	void	*zero;
 	char	**map;
 	char	*addr;
 	int		height;
@@ -30,6 +30,10 @@ typedef struct	s_mlx
 	void	*player;
 	void	*exit;
 	void	*collectible;
+	int		c_count;
+	int		p_x;
+	int		p_y;
+	int		moves;
 }				t_mlx;
 // #ifndef
 # define max_width	2560
@@ -44,14 +48,18 @@ typedef struct	s_mlx
 /*	so_long functions	*/
 
 int		get_height(char **map);
+int		get_count(t_mlx *game);
 int		ft_close(int keycode, t_mlx *game);
-// int		ft_close(t_mlx *game);
 
 void	long_parse(char *total);
+void	ft_render(t_mlx *game);
+void	put_sprite(t_mlx *game, int sprite_size);
 
 char	**get_map(int fd);
 
 /*	moving functions	*/
+
+int		ft_move(int keycode, t_mlx *game);
 void	move_left(t_mlx *game);
 void	move_right(t_mlx *game);
 void	move_down(t_mlx *game);
