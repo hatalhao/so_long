@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 22:36:09 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/06 15:58:05 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:11:39 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int main(int ac, char **av)
 	game.map = get_map(fd);
 	game.height = get_height(game.map);
 	game.width = ft_length(game.map[0]);
-	// the_parse(&game);
+	the_parse(&game, *av + 1);
 	if (((game.width * SPRITE_SIZE) > MAX_WIDTH) || (game.height * SPRITE_SIZE) > MAX_HEIGHT)
 		return (1);
 	game.c_count = get_count(&game);

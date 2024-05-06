@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 03:20:33 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/06 11:36:01 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:19:25 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	long_parse(char *total);
 void	ft_render(t_mlx *game);
 void	put_sprite(t_mlx *game, int sprite_size);
 void	print_moves(t_mlx *game);
+void	the_parse(t_mlx *game, char *av);
 
 char	**get_map(int fd);
 
