@@ -106,6 +106,6 @@ int	ft_move(int keycode, t_mlx *game)
 	else if (keycode == 126 || keycode == 13)
 		move_up(game);
 	game->moves++;
-	printf("Move == %d\n", game->moves);
+	ft_printf("Move == %d\n", game->moves);
 	return (0);
 }
