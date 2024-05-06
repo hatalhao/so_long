@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 03:20:33 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/06 09:46:03 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/06 11:36:01 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct	s_mlx
 
 int		get_height(char **map);
 int		get_count(t_mlx *game);
-int		ft_close(t_mlx *game);
+int		ft_close(void);
 
 void	long_parse(char *total);
 void	ft_render(t_mlx *game);

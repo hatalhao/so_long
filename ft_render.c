@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 22:36:51 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/06 09:50:52 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:05:52 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	put_sprite(t_mlx *game, int sprite_size)
 {
+	game->wall = mlx_xpm_file_to_image(game->mlx, "textures/deep_ocean_battlemap_1_.xpm", &sprite_size, &sprite_size); // size 60
+	game->zero = mlx_xpm_file_to_image(game->mlx, "textures/Ground_03.xpm", &sprite_size, &sprite_size); // size 60
+	game->player = mlx_xpm_file_to_image(game->mlx, "textures/popeyedilmo.xpm", &sprite_size, &sprite_size); // size 30
+	game->collectible = mlx_xpm_file_to_image(game->mlx, "textures/collectible.xpm", &sprite_size, &sprite_size); // size 30
+	game->exit = mlx_xpm_file_to_image(game->mlx, "textures/Door4.xpm", &sprite_size, &sprite_size); // size 30
 	game->window = mlx_new_window(game->mlx, game->width * SPRITE_SIZE, game->height * SPRITE_SIZE, "so_long");
-	game->wall = mlx_xpm_file_to_image(game->mlx, "textures/deep_ocean_battlemap_1_.xpm", &sprite_size, &sprite_size);
-	game->zero = mlx_xpm_file_to_image(game->mlx, "textures/Ground_03.xpm", &sprite_size, &sprite_size);
-	game->player = mlx_xpm_file_to_image(game->mlx, "textures/popeyedilmo.xpm", &sprite_size, &sprite_size);
-	game->collectible = mlx_xpm_file_to_image(game->mlx, "textures/collectible.xpm", &sprite_size, &sprite_size);
-	game->exit = mlx_xpm_file_to_image(game->mlx, "textures/Door4.xpm", &sprite_size, &sprite_size);
+	if (!game->window || !game->wall || !game->zero || !game->collectible || !game->exit || !game->player)
+		exit(1);
 }
 
 void	ft_render(t_mlx *game)
@@ -54,7 +56,7 @@ void	ft_render(t_mlx *game)
 				perror("Invalid Symbol in The Map");
 				system("leaks so_long");
 				exit(1);
-			}	
+			}
 			x++;
 		}
 		y++;
