@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 13:48:48 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/06 18:32:09 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/08 06:42:32 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int		all_syms(t_mlx *game)
 			|| game->map[h][w] == '0')
 				w++;
 			else
+			{
+				printf("ALL SYMS\n");
 				return (0);
+			}
 		}
 		h++;
 	}
@@ -42,13 +45,19 @@ int		is_rectangular(t_mlx *game)
 
 	h = 0;
 	len = ft_length(game->map[h++]);
-	if (h < 2)
-		return (0);
 	while (h < game->height)
 	{
 		if (len != (int)ft_length(game->map[h]))
+		{
+			printf("Rect\n");
 			return (0);
+		}
 		h++;
+	}
+	if (h < 2)
+	{
+		printf("SMALL MAP\n");
+		return (0);
 	}
 	return (1);
 }
@@ -62,15 +71,21 @@ int		wall_encircled(t_mlx *game)
 	w = 0;
 	while (w < game->width)
 	{
-		if (game->map[h][w] != '1' || game->map[game->height -1][w] == '1')
+		if (game->map[h][w] != '1' || game->map[game->height -1][w] != '1')
+		{
+			printf("NOT CIRCLED 1\n");
 			return (0);
+		}
 		w++;
 	}
 	w = 0;
 	while (h < game->height)
 	{
 		if (game->map[h][w] != '1' || game->map[h][game->width - 1] != '1')
+		{
+			printf("NOT CIRCLED 2\n");
 			return (0);
+		}
 		h++;
 	}
 	return (1);
@@ -90,6 +105,7 @@ void	the_parse(t_mlx *game, char *av)
 		if (!all_syms(game) || !is_rectangular(game) || !wall_encircled(game))
 			exit (1);
 		i++;
-	}		
-	exit (0);
+	}
+	ft_flood_fill(game->map_dup, game->p_y, game->p_x);
+	ff_verdict (game);
 }

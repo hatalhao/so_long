@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:56:12 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/01 11:42:06 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/08 07:31:31 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	long_parse(char *total)
 		if (total[i] == '\n' && total[i + 1] == '\n')
 		{
 			ft_free(&total);
-			// perror(strerror(errno()));
 			exit(1);
 		}
 		i++;

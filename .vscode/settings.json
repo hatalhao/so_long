@@ -9,6 +9,7 @@
 		"ft_printf.h": "c",
 		"fcntl.h": "c",
 		"sstream": "c",
-		"algorithm": "c"
+		"algorithm": "c",
+		"stdlib.h": "c"
 	}
 }
