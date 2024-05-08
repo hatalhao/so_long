@@ -6,11 +6,26 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 13:48:48 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/08 06:42:32 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/08 07:47:27 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+// int		map_name(char *av)
+// {
+// 	char	*str;
+
+// 	str = ft_strchr(av, '.');
+// 	if (ft_strcmp(str, ".ber"))
+// 		return (0);	
+// 	while (av)
+// 	{
+// 		if ()
+// 		av++;
+// 	}
+// 	return (1);
+// }
 
 int		all_syms(t_mlx *game)
 {

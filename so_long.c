@@ -6,17 +6,29 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 22:36:09 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/08 06:34:03 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:22:59 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	assignments(t_mlx *game)
+void	free_alloc(t_mlx *game)
+{
+	mlx_destroy_image(game->mlx, game->exit);
+	mlx_destroy_image(game->mlx, game->player);
+	mlx_destroy_image(game->mlx, game->wall);
+	mlx_destroy_image(game->mlx, game->zero);
+	mlx_destroy_image(game->mlx, game->collectible);
+	mlx_destroy_window(game->mlx, game->window);
+	free(game->map);
+	free(game->map_dup);
+}
+
+void	assignments(t_mlx *game, char *av)
 {
 	int	fd;
 
-	fd = open("maps/map1.ber", O_RDONLY);
+	fd = open(av, O_RDONLY);
 	if (fd == -1)
 	{
 		ft_putstr_fd("Invalid File Descriptor\n", 2);
@@ -42,17 +54,17 @@ int main(int ac, char **av)
 
 	if (ac != 2)
 		return (0);
+	assignments(&game, av[1]);
+	the_parse(&game, *av + 1);
 	game.mlx = mlx_init();
 	if (!game.mlx)
-		return (1);
-	assignments(&game);
-	the_parse(&game, *av + 1);
-	if (((game.width * SPRITE_SIZE) > MAX_WIDTH) || (game.height * SPRITE_SIZE) > MAX_HEIGHT)
 		return (1);
 	put_sprite(&game, SPRITE_SIZE);
 	ft_render(&game);
 	mlx_hook(game.window, 17, 0, ft_close, &game);
 	mlx_key_hook(game.window, ft_move, &game);
 	mlx_loop(game.mlx);
+	system("leaks so_long");
+	free_alloc(&game);
 	return (0);
 }

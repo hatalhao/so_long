@@ -20,7 +20,7 @@ void	ff_verdict(t_mlx *game)
 		x = 0;
 		while (x < game->width)
 		{
-			if (game->map_dup[y][x] != '1' && game->map_dup[y][x] != '2')
+			if (game->map_dup[y][x] != '1' && game->map_dup[y][x] != '2' && (game->map_dup[y][x] == 'E' || game->map_dup[y][x] == 'C'))
 			{
 				ft_putstr_fd("Map Not Filled Well\n", 2);
 				exit (1);
@@ -29,11 +29,12 @@ void	ff_verdict(t_mlx *game)
 		}
 		y++;
 	}
-	printf("FILLED WELL\n");
 }
 
 void	ft_flood_fill(char **map, int y, int x)
 {
+	if (map[y][x] == 'E')
+		map[y][x] = '1';
 	if (map[y][x] == '1' || map[y][x] == '2')
 		return ;
 	map[y][x] = '2';

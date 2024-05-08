@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 03:20:33 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/08 07:22:06 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/08 13:45:36 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct	s_mlx
 // #ifndef
 # define MAX_WIDTH		2560
 # define MAX_HEIGHT		1440
-# define SPRITE_SIZE	60
+# define SPRITE_SIZE	128
 
 // typedef	struct	s_window
 // {

@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:16:47 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/06 18:28:47 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/08 07:46:46 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,13 @@ int		ft_printf(char const	*str, ...);
 
 char	*get_next_line(int fd);
 char	*ft_strdup(char const *src);
+char	*ft_strrchr(const char *s, int c);
+char	*ft_strchr(const char *s, int c);
 
 char	**ft_split(char const *s, char c);
 
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	ft_putstr_fd(char *s, int fd);
+
 
 #endif
