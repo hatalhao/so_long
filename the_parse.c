@@ -6,26 +6,25 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 13:48:48 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/08 07:47:27 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/09 22:50:23 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// int		map_name(char *av)
-// {
-// 	char	*str;
-
-// 	str = ft_strchr(av, '.');
-// 	if (ft_strcmp(str, ".ber"))
-// 		return (0);	
-// 	while (av)
-// 	{
-// 		if ()
-// 		av++;
-// 	}
-// 	return (1);
-// }
+int		map_name(char *av)
+{
+	while (av && *av && *av + 1)
+	{
+		if (*av == '/' && *(av + 1) == '.')
+		{
+			printf("Invalid Map\n");
+			return(0);
+		}
+		av++;
+	}
+	return (1);
+}
 
 int		all_syms(t_mlx *game)
 {
@@ -107,19 +106,18 @@ int		wall_encircled(t_mlx *game)
 }
 void	the_parse(t_mlx *game, char *av)
 {
-	int	i;
+	// int	i;
 
-	i = 0;
-	if (ft_length(av) < 5)
+	// i = 0;
+	// if (ft_length(av) < 5)
+	// {
+	// 	ft_putstr_fd("Error map name\n", 2);
+	// 	exit (1);
+	// }
+	if (!all_syms(game) || !is_rectangular(game) || !wall_encircled(game) || !map_name(av))
 	{
-		ft_putstr_fd("Error map name\n", 2);
+		printf("HERE\n");
 		exit (1);
-	}
-	while (i < game->height)
-	{
-		if (!all_syms(game) || !is_rectangular(game) || !wall_encircled(game))
-			exit (1);
-		i++;
 	}
 	ft_flood_fill(game->map_dup, game->p_y, game->p_x);
 	ff_verdict (game);

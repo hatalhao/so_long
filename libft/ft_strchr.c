@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hatalhao <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:41:47 by hatalhao          #+#    #+#             */
-/*   Updated: 2023/11/05 19:25:13 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/09 14:37:07 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strchr(const char *s, int c)
 
 	chr = c;
 	i = 0;
-	len = ft_strlen(s);
+	len = ft_length(s);
 	while (i <= len)
 	{
 		if (s[i] == chr)

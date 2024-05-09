@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 22:36:09 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/08 14:22:59 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/09 16:24:51 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	assignments(t_mlx *game, char *av)
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 	{
-		ft_putstr_fd("Invalid File Descriptor\n", 2);
+		ft_putstr_fd("Error : Invalid File Descriptor\n", 2);
 		exit(1);	
 	}
 	game->map = get_map(fd);
@@ -55,7 +55,7 @@ int main(int ac, char **av)
 	if (ac != 2)
 		return (0);
 	assignments(&game, av[1]);
-	the_parse(&game, *av + 1);
+	the_parse(&game, *(av + 1));
 	game.mlx = mlx_init();
 	if (!game.mlx)
 		return (1);

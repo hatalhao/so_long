@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hatalhao <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:09:31 by hatalhao          #+#    #+#             */
-/*   Updated: 2023/11/05 19:29:05 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/09 14:36:01 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strrchr(const char *s, int c)
 	unsigned char	*str;
 
 	str = (unsigned char *) s;
-	i = ft_strlen(s);
+	i = ft_length(s);
 	while (i >= 0)
 	{
 		if (str[i] == (unsigned char)c)

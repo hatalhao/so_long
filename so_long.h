@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 03:20:33 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/08 13:45:36 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/09 16:53:22 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,16 @@ typedef struct	s_mlx
 # define MAX_HEIGHT		1440
 # define SPRITE_SIZE	128
 
-// typedef	struct	s_window
-// {
-// 	int			height;
-// 	int			width;
-// }				t_window;
+typedef	struct	s_counter
+{
+	int			height;
+	int			width;
+}				v_counter;
 
 /*	so_long functions	*/
 
 int		ft_close(void);
+
 /*		the_parse.c		*/
 void	the_parse(t_mlx *game, char *av);
 
