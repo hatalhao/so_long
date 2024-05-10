@@ -6,27 +6,20 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 13:48:48 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/09 22:50:23 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/10 18:24:20 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int		map_name(char *av)
+int	map_name(char *av)
 {
-	while (av && *av && *av + 1)
-	{
-		if (*av == '/' && *(av + 1) == '.')
-		{
-			printf("Invalid Map\n");
-			return(0);
-		}
-		av++;
-	}
+	if (ft_strcmp(".ber", ft_strrchr(av, '.')))
+		ft_error("Error: Invalid Map Name\n", NULL);
 	return (1);
 }
 
-int		all_syms(t_mlx *game)
+int	all_syms(t_mlx *game)
 {
 	int	w;
 	int	h;
@@ -38,12 +31,12 @@ int		all_syms(t_mlx *game)
 		while (w < game->width)
 		{
 			if (game->map[h][w] == 'P' || game->map[h][w] == '1'
-			|| game->map[h][w] == 'C' || game->map[h][w] == 'E'
-			|| game->map[h][w] == '0')
+				|| game->map[h][w] == 'C' || game->map[h][w] == 'E'
+				|| game->map[h][w] == '0')
 				w++;
 			else
 			{
-				printf("ALL SYMS\n");
+				ft_error("Foreigner Symbol\n", game);
 				return (0);
 			}
 		}
@@ -52,10 +45,10 @@ int		all_syms(t_mlx *game)
 	return (1);
 }
 
-int		is_rectangular(t_mlx *game)
+int	is_rectangular(t_mlx *game)
 {
-	int len;
-	int h;
+	int	len;
+	int	h;
 
 	h = 0;
 	len = ft_length(game->map[h++]);
@@ -76,7 +69,7 @@ int		is_rectangular(t_mlx *game)
 	return (1);
 }
 
-int		wall_encircled(t_mlx *game)
+int	wall_encircled(t_mlx *game)
 {
 	int	w;
 	int	h;
@@ -85,7 +78,7 @@ int		wall_encircled(t_mlx *game)
 	w = 0;
 	while (w < game->width)
 	{
-		if (game->map[h][w] != '1' || game->map[game->height -1][w] != '1')
+		if (game->map[h][w] != '1' || game->map[game->height - 1][w] != '1')
 		{
 			printf("NOT CIRCLED 1\n");
 			return (0);
@@ -104,21 +97,15 @@ int		wall_encircled(t_mlx *game)
 	}
 	return (1);
 }
+
 void	the_parse(t_mlx *game, char *av)
 {
-	// int	i;
-
-	// i = 0;
-	// if (ft_length(av) < 5)
-	// {
-	// 	ft_putstr_fd("Error map name\n", 2);
-	// 	exit (1);
-	// }
-	if (!all_syms(game) || !is_rectangular(game) || !wall_encircled(game) || !map_name(av))
+	if (!all_syms(game) || !is_rectangular(game) || !wall_encircled(game)
+		|| !map_name(av))
 	{
-		printf("HERE\n");
-		exit (1);
+		printf("%s --> HERE\n", __FUNCTION__);
+		exit(1);
 	}
 	ft_flood_fill(game->map_dup, game->p_y, game->p_x);
-	ff_verdict (game);
+	ff_verdict(game);
 }

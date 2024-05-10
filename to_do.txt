@@ -21,9 +21,16 @@ TO_DO
 		- Trapped Exit
 
 		- The Map is not surrounded by 1s;
-		- The Map has to be smaller than the maximum size of the window
 		- The Map's name has to end with .ber
 		- The Map has to be rectungular
 		- The Map is disconnected and the player is on one side and the exit is on the other.
 
 		Flood_Fill
+
+
+ORDER;
+	1- Check map name;
+	2- Check map's validity;
+	3- Check map's symbols;
+	4- Check Map's Playability
+	5-

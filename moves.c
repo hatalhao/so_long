@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 17:01:08 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/06 09:55:21 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/10 19:03:41 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void	move_left(t_mlx *game)
 		game->c_count--;
 	game->map[game->p_y][game->p_x] = '0';
 	game->map[game->p_y][game->p_x - 1] = 'P';
-	print_moves(game);
+	// print_moves(game);
 	mlx_clear_window(game->mlx, game->window);
 	ft_render(game);
 }
 
 void	move_right(t_mlx *game)
-{	
+{
 	if (game->map[game->p_y][game->p_x + 1] == '1')
 		return ;
 	else if (game->map[game->p_y][game->p_x + 1] == 'E')
@@ -57,6 +57,7 @@ void	move_right(t_mlx *game)
 	mlx_clear_window(game->mlx, game->window);
 	ft_render(game);
 }
+
 void	move_down(t_mlx *game)
 {
 	if (game->map[game->p_y + 1][game->p_x] == '1')
@@ -79,6 +80,7 @@ void	move_down(t_mlx *game)
 	mlx_clear_window(game->mlx, game->window);
 	ft_render(game);
 }
+
 void	move_up(t_mlx *game)
 {
 	if (game->map[game->p_y - 1][game->p_x] == '1')
@@ -101,10 +103,11 @@ void	move_up(t_mlx *game)
 	mlx_clear_window(game->mlx, game->window);
 	ft_render(game);
 }
+
 int	ft_move(int keycode, t_mlx *game)
 {
 	if (keycode == 53)
-		exit (0);
+		exit(0);
 	else if (keycode == 123 || keycode == 0)
 		move_left(game);
 	else if (keycode == 124 || keycode == 2)

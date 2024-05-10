@@ -6,25 +6,24 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:56:49 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/09 16:56:50 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/10 18:30:40 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	print_map(t_mlx *game)
+void	ft_error(char *str, t_mlx *game)
 {
-	int y;
-
-	y = 0;
-	while (y < game->height)
-		printf("----------------->>> %s\n", game->map_dup[y++]);
+	if (game)
+		free_alloc(game);
+	str_fd(str, 2);
+	exit(1);
 }
 
 void	ff_verdict(t_mlx *game)
 {
 	int	y;
-	int x;
+	int	x;
 
 	y = 0;
 	while (y < game->height)
@@ -32,11 +31,12 @@ void	ff_verdict(t_mlx *game)
 		x = 0;
 		while (x < game->width)
 		{
-			if (game->map_dup[y][x] != '1' && game->map_dup[y][x] != '2' && (game->map_dup[y][x] == 'E' || game->map_dup[y][x] == 'C'))
+			if (game->map_dup[y][x] != '1' && game->map_dup[y][x] != '2'
+				&& (game->map_dup[y][x] == 'E' || game->map_dup[y][x] == 'C'))
 			{
-				ft_putstr_fd("Map Not Filled Well\n", 2);
-				exit (1);
-			}	
+				ft_error("Map Not Filled Well\n", game);
+				exit(1);
+			}
 			x++;
 		}
 		y++;
@@ -58,12 +58,12 @@ void	ft_flood_fill(char **map, int y, int x)
 
 char	**map_dup(t_mlx *game)
 {
-	int 	y;
+	int		y;
 	char	**map_dup;
 
 	if (!(game->map) || !*(game->map))
 		return (NULL);
-	map_dup = (char **) malloc ((game->height + 1) * sizeof(char *));
+	map_dup = (char **)malloc((game->height + 1) * sizeof(char *));
 	if (!map_dup)
 		return (NULL);
 	y = 0;

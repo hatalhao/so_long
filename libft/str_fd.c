@@ -6,13 +6,13 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:39:45 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/06 18:28:07 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:10:40 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	str_fd(char *s, int fd)
 {
 	if (!s)
 		return ;

@@ -1,6 +1,6 @@
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
 SRC = $(wildcard *.c)
 #SRC = $(filter-out the_parse.c, $(wildcard *.c))
@@ -31,7 +31,6 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME) libft.a
-	make -C libft fclean
 
 re : fclean all
 
