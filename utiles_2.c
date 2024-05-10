@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:56:49 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/10 22:18:33 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/11 00:34:38 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_error(char *str, t_mlx *game)
 		free_map(game->map_dup);
 	}
 	str_fd(str, 2);
-	system("leaks so_long");
 	exit(1);
 }
 

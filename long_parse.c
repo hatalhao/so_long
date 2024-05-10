@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:56:12 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/10 20:15:52 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/11 00:44:31 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	long_parse(char *total)
 			str_fd("Error: There are two consecutive newlines in the map\n",
 				2);
 			ft_free(&total);
+			system("leaks so_long");
 			exit(1);
 		}
 		i++;
@@ -32,6 +33,7 @@ void	long_parse(char *total)
 	{
 		str_fd("Error: There is a newline at the end of the map\n", 2);
 		ft_free(&total);
+		system("leaks so_long");
 		exit(1);
 	}
 }

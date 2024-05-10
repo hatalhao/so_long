@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 03:20:33 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/10 22:48:33 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/11 00:19:21 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_mlx
 	int					c_count;
 }						t_mlx;
 
-# define MAX_VALUE 1000
+# define MAX_VALUE 256
 # define SPRITE_SIZE 64 // change to 64
 
 /*		so_long.c		*/

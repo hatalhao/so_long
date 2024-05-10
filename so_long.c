@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 22:36:09 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/10 22:53:42 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/11 00:55:43 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ void	assignments(t_mlx *game, char *av)
 	game->height = get_height(game->map);
 	if (game->height > MAX_VALUE)
 	{
-		free(game->map);
-		exit(1);
+		free_map(game->map);
+		ft_error("The Map is Too Big\n", NULL);
 	}
 	game->width = ft_length(*(game->map));
 	if (game->width > MAX_VALUE)
 	{
-		free(game->map);
+		free_map(game->map);
 		ft_error("The Map is Too Big\n", NULL);
 	}	
 	game->map_dup = map_dup(game);
@@ -63,6 +63,7 @@ void	assignments(t_mlx *game, char *av)
 
 int	ft_close(void)
 {
+	system("leaks so_long");
 	exit(0);
 }
 

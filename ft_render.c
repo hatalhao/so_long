@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 22:36:51 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/10 22:44:12 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/11 00:44:38 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	put_sprite(t_mlx *game, int sprite_size)
 		|| !game->exit || !game->player)
 	{
 		str_fd("Error: One of The Images is Invalid\n", 2);
+		system("leaks so_long");
 		exit(1);
 	}
 }
