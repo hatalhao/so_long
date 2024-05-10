@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 06:47:22 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/10 19:56:51 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/10 20:22:20 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 void	verify_count(t_mlx *game)
 {
-	if (game->c_count >= 1)
+	if (game->c_count < 1 || game->e_count != 1 || game->p_count != 1)
+	{
+		free(game->map);
+		free(game->map_dup);
+		str_fd("Error: Missing Symbol\n", 2);
+		exit(1);
+	}
+	else
 		return ;
-	if (game->e_count == 1)
-		return ;
-	if (game->p_count == 1)
-		return ;
-	free(game->map);
-	free(game->map_dup);
-	str_fd("Error: Missing Symbol\n", 2);
-	exit(1);
 }
 
 void	player_coords(t_mlx *game)
@@ -105,7 +104,7 @@ char	**get_map(int fd)
 	}
 	if (!total)
 	{
-		str_fd("The Map is empty\n", 2);
+		str_fd("Error: The Map is empty\n", 2);
 		exit(1);
 	}
 	long_parse(total);

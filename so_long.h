@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 03:20:33 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/10 18:58:24 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/10 22:48:33 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,16 @@ typedef struct s_mlx
 	int					c_count;
 }						t_mlx;
 
-# define MAX_WIDTH 2560
-# define MAX_HEIGHT 1440
-# define SPRITE_SIZE 128 // change to 64
+# define MAX_VALUE 1000
+# define SPRITE_SIZE 64 // change to 64
 
 /*		so_long.c		*/
 int						ft_close(void);
-void					free_alloc(t_mlx *game);
+void					map_name(char *av);
+void					free_map(char **map);
 
 /*		the_parse.c		*/
-void					the_parse(t_mlx *game, char *av);
+void					the_parse(t_mlx *game);
 
 void					long_parse(char *total);
 void					ft_render(t_mlx *game);

@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 22:36:51 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/10 18:17:21 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/10 22:44:12 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	print_moves(t_mlx *game)
 
 void	put_sprite(t_mlx *game, int sprite_size)
 {
-	game->wall = mlx_xpm_file_to_image(game->mlx, "textures/sand.xpm",
+	game->wall = mlx_xpm_file_to_image(game->mlx, "textures/wall.xpm",
 			&sprite_size, &sprite_size);
-	game->floor = mlx_xpm_file_to_image(game->mlx, "textures/lab_floor.xpm",
+	game->floor = mlx_xpm_file_to_image(game->mlx, "textures/floor.xpm",
 			&sprite_size, &sprite_size);
 	game->player = mlx_xpm_file_to_image(game->mlx, "textures/ww.xpm",
 			&sprite_size, &sprite_size);
@@ -35,7 +35,7 @@ void	put_sprite(t_mlx *game, int sprite_size)
 	if (!game->window || !game->wall || !game->floor || !game->collectible
 		|| !game->exit || !game->player)
 	{
-		printf("PUT_SPRITE\n");
+		str_fd("Error: One of The Images is Invalid\n", 2);
 		exit(1);
 	}
 }
@@ -66,7 +66,7 @@ void	fill_map(t_mlx *game, int y, int x)
 		mlx_put_image_to_window(game->mlx, game->window, game->exit, x
 			* SPRITE_SIZE, y * SPRITE_SIZE);
 	else
-		ft_error("Invalid Symbol in The Map\n", game);
+		ft_error("Error: Invalid Symbol in The Map\n", game);
 }
 
 void	ft_render(t_mlx *game)

@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 17:01:08 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/10 19:03:41 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/10 20:12:04 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	move_left(t_mlx *game)
 		game->c_count--;
 	game->map[game->p_y][game->p_x] = '0';
 	game->map[game->p_y][game->p_x - 1] = 'P';
-	// print_moves(game);
+	print_moves(game);
 	mlx_clear_window(game->mlx, game->window);
 	ft_render(game);
 }

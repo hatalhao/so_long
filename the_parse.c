@@ -6,18 +6,11 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 13:48:48 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/10 18:24:20 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/10 20:50:23 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	map_name(char *av)
-{
-	if (ft_strcmp(".ber", ft_strrchr(av, '.')))
-		ft_error("Error: Invalid Map Name\n", NULL);
-	return (1);
-}
 
 int	all_syms(t_mlx *game)
 {
@@ -36,7 +29,7 @@ int	all_syms(t_mlx *game)
 				w++;
 			else
 			{
-				ft_error("Foreigner Symbol\n", game);
+				ft_error("Error: Alien Symbol\n", game);
 				return (0);
 			}
 		}
@@ -56,15 +49,10 @@ int	is_rectangular(t_mlx *game)
 	{
 		if (len != (int)ft_length(game->map[h]))
 		{
-			printf("Rect\n");
+			str_fd("Error: The Map is Not Rectangular\n", 2);
 			return (0);
 		}
 		h++;
-	}
-	if (h < 2)
-	{
-		printf("SMALL MAP\n");
-		return (0);
 	}
 	return (1);
 }
@@ -79,31 +67,24 @@ int	wall_encircled(t_mlx *game)
 	while (w < game->width)
 	{
 		if (game->map[h][w] != '1' || game->map[game->height - 1][w] != '1')
-		{
-			printf("NOT CIRCLED 1\n");
 			return (0);
-		}
 		w++;
 	}
 	w = 0;
 	while (h < game->height)
 	{
 		if (game->map[h][w] != '1' || game->map[h][game->width - 1] != '1')
-		{
-			printf("NOT CIRCLED 2\n");
 			return (0);
-		}
 		h++;
 	}
 	return (1);
 }
 
-void	the_parse(t_mlx *game, char *av)
+void	the_parse(t_mlx *game)
 {
-	if (!all_syms(game) || !is_rectangular(game) || !wall_encircled(game)
-		|| !map_name(av))
+	if (!is_rectangular(game) || !wall_encircled(game) || !all_syms(game))
 	{
-		printf("%s --> HERE\n", __FUNCTION__);
+		system("leaks so_long");
 		exit(1);
 	}
 	ft_flood_fill(game->map_dup, game->p_y, game->p_x);
