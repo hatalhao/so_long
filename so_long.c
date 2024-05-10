@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 22:36:09 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/10 19:09:39 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/10 19:59:29 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	assignments(t_mlx *game, char *av)
 	game->width = ft_length(*(game->map));
 	game->map_dup = map_dup(game);
 	get_count(game);
+	
 	game->moves = 0;
 	player_coords(game);
 }
@@ -61,7 +62,7 @@ int	main(int ac, char **av)
 		return (1);
 	put_sprite(&game, SPRITE_SIZE);
 	ft_render(&game);
-	printf("c_count ==> %d\n", game.c_count);
+	mlx_hook(game.window, 17, 0, ft_close, &game);
 	mlx_key_hook(game.window, ft_move, &game);
 	mlx_loop(game.mlx);
 	free_alloc(&game);

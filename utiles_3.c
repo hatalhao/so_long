@@ -6,11 +6,25 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 06:47:22 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/10 19:08:55 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/10 19:56:51 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	verify_count(t_mlx *game)
+{
+	if (game->c_count >= 1)
+		return ;
+	if (game->e_count == 1)
+		return ;
+	if (game->p_count == 1)
+		return ;
+	free(game->map);
+	free(game->map_dup);
+	str_fd("Error: Missing Symbol\n", 2);
+	exit(1);
+}
 
 void	player_coords(t_mlx *game)
 {
@@ -59,6 +73,7 @@ void	get_count(t_mlx *game)
 		}
 		y++;
 	}
+	verify_count(game);
 }
 
 int	get_height(char **map)
