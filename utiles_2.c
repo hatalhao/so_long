@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:56:49 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/11 00:34:38 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/11 20:40:15 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ff_verdict(t_mlx *game)
 			if (game->map_dup[y][x] != '1' && game->map_dup[y][x] != '2'
 				&& (game->map_dup[y][x] == 'E' || game->map_dup[y][x] == 'C'))
 			{
-				ft_error("Map Not Filled Well\n", game);
+				ft_error("Error: Unreachable Collectible(s)/exit\n", game);
 			}
 			x++;
 		}

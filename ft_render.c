@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 22:36:51 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/11 00:44:38 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/11 20:49:44 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,14 @@ void	put_sprite(t_mlx *game, int sprite_size)
 			&sprite_size, &sprite_size);
 	game->collectible = mlx_xpm_file_to_image(game->mlx, "textures/meth.xpm",
 			&sprite_size, &sprite_size);
-	game->exit = mlx_xpm_file_to_image(game->mlx, "textures/exit.xpm",
+	game->exit = mlx_xpm_file_to_image(game->mlx, "textures/ex2it.xpm",
 			&sprite_size, &sprite_size);
 	game->window = mlx_new_window(game->mlx, game->width * SPRITE_SIZE,
 			game->height * SPRITE_SIZE, "so_long");
 	if (!game->window || !game->wall || !game->floor || !game->collectible
 		|| !game->exit || !game->player)
 	{
-		str_fd("Error: One of The Images is Invalid\n", 2);
-		system("leaks so_long");
+		str_fd("Error:Invalid Image(s)\n", 2);
 		exit(1);
 	}
 }

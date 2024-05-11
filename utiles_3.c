@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 06:47:22 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/11 00:42:53 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/11 20:33:27 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ void	verify_count(t_mlx *game)
 	{
 		free_map(game->map);
 		free_map(game->map_dup);
-		str_fd("Error: Symbol \n", 2);
-		system("leaks so_long");
+		str_fd("Error: Missing/Extra Symbols \n", 2);
 		exit(1);
 	}
 	else
@@ -106,7 +105,6 @@ char	**get_map(int fd)
 	if (!total)
 	{
 		str_fd("Error: The Map is empty\n", 2);
-		system("leaks so_long");
 		exit(1);
 	}
 	long_parse(total);

@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 17:01:08 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/11 00:44:23 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/11 20:33:14 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	move_left(t_mlx *game)
 		if (game->c_count == 0)
 		{
 			print_moves(game);
-			system("leaks so_long");
 			exit(0);
 		}
 		else
@@ -45,7 +44,6 @@ void	move_right(t_mlx *game)
 		if (game->c_count == 0)
 		{
 			print_moves(game);
-			system("leaks so_long");
 			exit(0);
 		}
 		else
@@ -69,7 +67,6 @@ void	move_down(t_mlx *game)
 		if (game->c_count == 0)
 		{
 			print_moves(game);
-			system("leaks so_long");
 			exit(0);
 		}
 		else
@@ -93,7 +90,6 @@ void	move_up(t_mlx *game)
 		if (game->c_count == 0)
 		{
 			print_moves(game);
-			system("leaks so_long");
 			exit(0);
 		}
 		else
@@ -111,10 +107,7 @@ void	move_up(t_mlx *game)
 int	ft_move(int keycode, t_mlx *game)
 {
 	if (keycode == 53)
-	{
-		system("leaks so_long");	
 		exit(0);
-	}
 	else if (keycode == 123 || keycode == 0)
 		move_left(game);
 	else if (keycode == 124 || keycode == 2)

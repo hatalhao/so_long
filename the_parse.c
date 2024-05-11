@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 13:48:48 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/10 20:50:23 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/11 20:33:53 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ int	all_syms(t_mlx *game)
 				|| game->map[h][w] == '0')
 				w++;
 			else
-			{
 				ft_error("Error: Alien Symbol\n", game);
-				return (0);
-			}
 		}
 		h++;
 	}
@@ -83,10 +80,7 @@ int	wall_encircled(t_mlx *game)
 void	the_parse(t_mlx *game)
 {
 	if (!is_rectangular(game) || !wall_encircled(game) || !all_syms(game))
-	{
-		system("leaks so_long");
 		exit(1);
-	}
 	ft_flood_fill(game->map_dup, game->p_y, game->p_x);
 	ff_verdict(game);
 }
