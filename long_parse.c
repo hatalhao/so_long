@@ -6,7 +6,7 @@
 /*   By: hatalhao <hatalhao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:56:12 by hatalhao          #+#    #+#             */
-/*   Updated: 2024/05/11 20:32:48 by hatalhao         ###   ########.fr       */
+/*   Updated: 2024/05/11 20:55:19 by hatalhao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	long_parse(char *total)
 	{
 		if (total[i] == '\n' && total[i + 1] == '\n')
 		{
-			str_fd("Error: There are two consecutive newlines in the map\n",
-				2);
+			str_fd("Error:Two or More Consecutive Newlines in The Map\n", 2);
 			ft_free(&total);
 			exit(1);
 		}
@@ -30,7 +29,7 @@ void	long_parse(char *total)
 	}
 	if (total[i] == '\n' && total[i + 1] == '\0')
 	{
-		str_fd("Error: There is a newline at the end of the map\n", 2);
+		str_fd("Error: Newline at The End of The Map\n", 2);
 		ft_free(&total);
 		exit(1);
 	}
